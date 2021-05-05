@@ -9,14 +9,14 @@ const ChatFeed = (props) => {
   //current chat variable [activeChat]
   const chat = chats && chats[activeChat];
 
-  //not working fix it later
+  //read receipt function which shows who have seen the messages
   const renderReadReceipts = (message, isMyMessage) => {
     return chat.people.map(
       (person, index) =>
         person.last_read === message.id && (
           <div
             key={`read_${index}`}
-            className="read-receipts"
+            className="read-receipt"
             style={{
               float: isMyMessage ? "right" : "left",
               backgroundImage: `url(${person?.person?.avatar})`,
